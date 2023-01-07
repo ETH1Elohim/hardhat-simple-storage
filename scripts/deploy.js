@@ -4,7 +4,7 @@ const { ethers, run, network } = require("hardhat")
 // async main
 // deploy, if (testnet) -> verifies, then updates value
 // test & interact with contract via node.js "yarn hardhat console --network <insert network."
-async function deployAndUpdate() {
+async function deployContract() {
     const SimpleStorageFactory = await ethers.getContractFactory(
         "SimpleStorage"
     )
@@ -45,8 +45,7 @@ async function verify(contractAddress, args) {
     }
 }
 
-// calls main
-deployAndUpdate()
+deployContract()
     .then(() => process.exit(0))
     .catch((error) => {
         console.error(error)
